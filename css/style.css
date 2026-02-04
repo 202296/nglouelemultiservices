@@ -1,0 +1,2902 @@
+:root{
+  --main-green:#1aa34a;
+  --dark:#111;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: Arial, sans-serif;
+  color:#111;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 30px;              /* remove vertical padding */
+  height:90px;                 /* match logo height */
+  background:white;
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
+  transition:0.3s ease;
+}
+
+
+.logo{
+  display:flex;
+  align-items:center;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#111;
+  margin:0 8px;
+  font-weight:500;
+}
+
+nav a:hover{
+  color:var(--main-green);
+}
+
+.search-box input{
+  padding:6px 12px;
+  border-radius:20px;
+  border:1px solid #ccc;
+  outline:none;
+}
+
+/* Scroll effect */
+header.scrolled{
+  background:var(--main-green);
+}
+
+header.scrolled nav a{
+  color:white;
+}
+
+header.scrolled .logo img{
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
+/* ================= HERO ================= */
+
+.hero-tabs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.tab-btn{
+  padding:8px 20px;
+  border:none;
+  background:#eee;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.tab-btn.active{
+  background:var(--main-green);
+  color:white;
+}
+
+.hero-slider{
+  position:relative;
+  overflow:hidden;
+  height:75vh;
+  display:none;
+}
+
+.hero-slider.active{
+  display:block;
+}
+
+.slides-track{
+  display:flex;
+  height:100%;
+  transition:transform 0.6s ease-in-out;
+}
+
+.slide{
+  min-width:100%;
+  height:100%;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* Arrows */
+.prev, .next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.35);
+  color:white;
+  border:none;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.prev{ left:15px; }
+.next{ right:15px; }
+
+/* ================= WELCOME ================= */
+
+.welcome{
+  text-align:center;
+  padding:60px 20px;
+  background:#f7f7f7;
+}
+
+.welcome h2{
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+.welcome p{
+  max-width:600px;
+  margin:0 auto 20px;
+  color:#444;
+}
+
+.btn-green{
+  background:var(--main-green);
+  color:white;
+  padding:10px 22px;
+  text-decoration:none;
+  border-radius:25px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#0f0f0f;
+  color:white;
+  padding:60px 20px 25px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+  .hero-slider{height:60vh;}
+  nav{display:none;}
+
+  .footer-grid h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .footer-grid p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .footer-grid a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 4px 0;
+  }
+
+  .footer-grid a:hover {
+    color: var(--main-green);
+  }
+
+  .footer-socials {
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .footer-socials a {
+    width: 40px;
+    height: 40px;
+    background: #1f7a3f;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: 0.3s ease;
+    text-decoration: none;
+  }
+
+  .footer-socials a:hover {
+    background: #14582e;
+    transform: translateY(-3px);
+  }
+}
+
+footer a{
+  color:white;
+  text-decoration:none;
+}
+
+footer a:hover{
+  color:var(--main-green);
+}
+
+.footer-socials {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+}
+
+.footer-socials a {
+  width: 40px;
+  height: 40px;
+  background: #1f7a3f; /* your green theme */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-socials a:hover {
+  background: #14582e;
+  transform: translateY(-3px);
+}
+
+.products-section {
+  padding: 60px 20px;
+  background: #f7f7f7;
+  text-align: center;
+  margin-top: 0;
+}
+
+.products-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #1f7a3f;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.product-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: #111;
+  display: block;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-card h3 {
+  padding: 15px;
+  font-size: 18px;
+}
+
+.product-img {
+  cursor: pointer;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-img:hover {
+  transform: scale(1.05);
+}
+
+.product-link {
+  text-decoration: none;
+  color: #111;
+  display: block;
+}
+
+.product-link:hover h3 {
+  color: var(--main-green);
+}
+
+.img-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index: 9999;
+}
+
+.img-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #1f7a3f;
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+}
+
+/* ABOUT HERO */
+.about-hero {
+  height: 50vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/metalwork1.JPG') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.about-hero-text h1 {
+  font-size: 3rem;
+}
+
+.about-hero-text p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* ABOUT CONTENT */
+.about-content {
+  padding: 60px 8%;
+  background: #fff;
+}
+
+.about-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.about-text {
+  flex: 1 1 400px;
+}
+
+.about-text h2 {
+  color: #1fa84f;
+  margin-bottom: 15px;
+}
+
+.about-text ul {
+  margin-top: 15px;
+}
+
+.about-text li {
+  margin-bottom: 8px;
+}
+
+.about-image {
+  flex: 1 1 400px;
+}
+
+/* VALUES */
+.values {
+  background: #f5f5f5;
+  padding: 60px 8%;
+  text-align: center;
+}
+
+.values-grid {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.value-box {
+  background: white;
+  padding: 30px;
+  width: 280px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.value-box i {
+  font-size: 2rem;
+  color: #1fa84f;
+  margin-bottom: 15px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .about-hero-text h1 { font-size: 2.2rem; }
+}
+
+/* CONTACT HERO */
+.contact-hero {
+  background: #1fa84f;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  
+}
+
+.contact-hero h1 {
+  font-size: 2.8rem;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  padding: 40px 8%;
+  background: #fff;
+}
+
+.contact-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  flex: 1 1 350px;
+}
+
+.contact-info h2 {
+  color: #1fa84f;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin: 15px 0;
+  background: #25D366;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-form {
+  flex: 1 1 350px;
+}
+
+.contact-form h2 {
+  color: #1fa84f;
+  margin-bottom: 15px;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contact-form button {
+  background: #1fa84f;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* MAP */
+.map-section {
+  padding: 0;
+  margin: 0;
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .contact-wrapper {
+    flex-direction: column;
+  }
+
+  .map-section iframe {
+    height: 250px;
+  }
+  .search-box {    display: none !important;
+  }
+}
+
+.product-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 10%;
+  background: #fff;
+}
+
+.product-gallery {
+  flex: 1 1 400px;
+}
+
+.gallery-main {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: contain;
+  max-height: 500px;
+  display: block;
+}
+
+.gallery-thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.gallery-thumbs img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 2px solid transparent;
+}
+
+.gallery-thumbs video {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 2px solid transparent;
+}
+
+.gallery-thumbs img:hover,
+.gallery-thumbs video:hover {
+  border-color: #2e7d32;
+}
+
+.product-info {
+  flex: 1 1 400px;
+}
+
+.btn-devis {
+  display: inline-block;
+  margin-top: 20px;
+  background: #2e7d32;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.product-video-box {
+  margin-top: 20px;
+  max-width: 500px;
+}
+
+.product-video-box video {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.videos-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+.video-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.page-hero {
+  background: linear-gradient(135deg, var(--main-green) 0%, #0d5a2e 100%);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-size: clamp(28px, 5vw, 48px);
+  margin-bottom: 0px;
+}
+
+.page-hero p {
+  font-size: 32px;
+  opacity: 0.95;
+}
+
+.services-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  background: #fff;
+}
+
+.service-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card i {
+  font-size: 40px;
+  color: #ff7a00;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  margin-bottom: 10px;
+}
+
+.suggestions-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  z-index: 1000;
+  display: none;
+}
+
+.suggestions-box div {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.suggestions-box div:last-child {
+  border-bottom: none;
+}
+
+.suggestions-box div:hover {
+  background: #f0f8f0; /* light green theme match */
+}
+
+@media (max-width: 1024px) {
+  header{
+    height:70px;
+    padding:0 20px;
+  }
+
+  main{
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+  }
+
+  .hero-slider{
+    height:55vh;
+  }
+
+  .page-hero h1{
+    font-size:32px;
+  }
+
+  .services-page{
+    padding:40px 15px;
+  }
+}
+
+header.scrolled{
+  background:var(--main-green);
+  justify-content:center;
+}
+
+@media (max-width:768px){
+  header {
+    height:120px;
+    padding:0 15px;
+  }
+
+  .logo img {
+    height:60px;
+  }
+
+  .contact-hero {
+    padding: 40px 15px;
+  }
+
+  .contact-hero h1 {
+    font-size: 24px;
+  }
+
+  .contact-section {
+    padding: 40px 15px;
+  }
+
+  .contact-wrapper {
+    gap: 20px;
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: 1 1 100%;
+  }
+}
+
+/* ================= DROPDOWN ================= */
+
+.nav-dropdown {
+  display: inline-block;
+}
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #e5e;
+  min-width: 220px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  border-radius: 8px;
+  padding: 10px 0;
+  display: none;
+  z-index: 5000;
+}
+
+.dropdown-menu a {
+  padding: 10px 18px;
+  display: block;
+  color: #111;
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+  background: #f2f2f2;
+  color: var(--main-green);
+}
+
+/* Show dropdown on hover (desktop) */
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+header:not(.scrolled) .dropdown-menu {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+main{
+  padding-top: 70px;
+}
+
+
+
+/* ===== FIX PRODUCTS PAGE HERO SPACING ===== */
+
+/* If your products page starts with a section like this */
+.products-section:first-of-type {
+  padding-top: 120px;   /* desktop space below fixed header */
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .products-section:first-of-type {
+    padding-top: 80px;
+  }
+}
+
+/* ==== FIX: Dropdown visible on green header ==== */
+header.scrolled .dropdown-menu {
+  background: #ffffff;
+  border: 1px solid #ddd;
+}
+
+header.scrolled .dropdown-menu a {
+  color: #111;
+}
+
+header.scrolled .dropdown-menu a:hover {
+  background: #f2f2f2;
+  color: var(--main-green);
+}
+
+/* Ensure dropdown always appears above header */
+/* ==== FIX: Page hero / first product section hidden under fixed header ==== */
+
+/* For ALL top hero sections */
+
+/* For products page first section */
+.products-section {
+  padding-top: 120px;
+}
+
+/* Mobile adjustment */
+@media (max-width:768px){
+  .page-hero,
+  .about-hero,
+  .contact-hero,
+  .hero-wrapper {
+    padding-top: 70px;
+  }
+
+  .products-section {
+    padding-top: 90px;
+  }
+}
+
+/* ===== FIX MOBILE FOOTER SCROLL BUG ===== */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* ===== FIX SMALL CONTENT PAGES LAYOUT ===== */
+
+/* Ensure every page fills screen height properly */
+main {
+  flex: 1;
+  display: block;
+}
+
+/* Give every page hero breathing space under fixed header */
+.page-hero,
+.contact-hero,
+.about-hero {/* pushes content below fixed header */
+  padding-bottom: 40px;
+}
+
+/* Products / services / videos pages always fill height */
+
+/* Fix mobile header overlap */
+@media (max-width:600px){
+  .page-hero,
+  .contact-hero,
+  .about-hero {
+    padding-top: 100px;
+  }
+}
+
+main {
+  flex: 1;
+}
+
+/*<<<<<<< HEAD
+=======
+/* ================= FINAL LAYOUT FIXES ================= */
+
+/* Ensure pages with little content don't stretch weirdly */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+/* Prevent huge empty white gaps */
+.products-section,
+.services-page,
+.videos-page,
+.contact-section,
+.product-page {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Contact page gap fix */
+.map-section {
+  margin-top: 0;
+}
+
+/* Make hero/page-hero always visible below fixed header */
+.hero-wrapper,
+.page-hero,
+.contact-hero,
+.about-hero {
+  margin-top: 90px;
+}
+
+@media(max-width:768px){
+  .hero-wrapper,
+  .page-hero,
+  .contact-hero,
+  .about-hero {
+    margin-top: 70px;
+  }
+}
+
+/* Fix dropdown visibility on green header */
+header.scrolled .dropdown-menu {
+  background: white;
+}
+
+header.scrolled .dropdown-menu a {
+  color: #111;
+}
+
+/* Prevent footer sliding off on mobile scroll */
+/*<<<<<<< HEAD
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#0f0f0f;
+  color:white;
+  padding:60px 20px 25px;
+  margin-top:auto;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+
+.footer-grid h3{
+  margin-bottom:12px;
+}
+
+.footer-grid a{
+  color:white;
+  text-decoration:none;
+  display:block;
+  margin:4px 0;
+}
+
+.footer-grid a:hover{
+  color:var(--main-green);
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:30px;
+  font-size:14px;
+  opacity:0.6;
+}
+
+.socials{
+  margin-top:10px;
+}
+
+.socials a{
+  font-size:22px;
+  margin-right:12px;
+  display:inline-block;
+  transition:transform 0.2s ease;
+}
+
+.socials a:hover{
+  transform:scale(1.2);
+}
+
+.footer-socials {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.footer-socials a {
+  width: 32px;       /* smaller */
+  height: 32px;      /* smaller */
+  background: #1f7a3f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 14px;   /* smaller icon */
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-socials a:hover {
+  background: #14582e;
+  transform: translateY(-2px);
+}
+
+/* Desktop logo size */
+.logo img{
+  height:90px;   /* increase size */
+  width:auto;
+}
+
+@media (max-width:768px){
+  .logo img{
+    height:70px;  /* keep mobile smaller */
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+  display: block;
+}
+
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  top: 100%;
+  left: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.5px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  cursor: pointer;
+  display: block;
+  transition: 0.3s;
+}
+
+.about-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+/* ===== ABOUT IMAGE SLIDER ===== */
+
+.about-image-slider {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.about-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.about-slide.active {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .about-wrapper {
+    flex-wrap: wrap;   /* stack on small screens only */
+  }
+
+  .about-image,
+  .about-text {
+    flex: 1 1 100%;
+  }
+}
+
+/* ===== IMAGE FULLSCREEN LIGHTBOX ===== */
+
+#imgLightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+#imgLightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.8); opacity: 0;}
+  to   {transform: scale(1); opacity: 1;}
+}
+
+/* Make gallery images show clickable cursor */
+.gallery-main,
+.gallery-thumbs img {
+  cursor: pointer;
+}
+
+.product-info {
+  max-width: 520px;
+}
+
+.product-info h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.product-info p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.product-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.product-info ul {
+  padding-left: 20px;
+  margin-bottom: 24px;
+}
+
+.product-info ul li {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.btn-devis {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 26px;
+  background: #1f7a3f;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-devis:hover {
+  background: #155c30;
+}
+
+.service-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* ================= FINAL MOBILE FIX ================= */
+
+/* Keep nav visible on mobile until hamburger is added */
+
+/* Prevent double header spacing issues */
+.page-hero,
+.about-hero,
+.contact-hero {
+  margin-top: 0;
+  padding-top: 110px; /* single consistent spacing */
+}
+
+@media(max-width:768px){
+  .page-hero,
+  .about-hero,
+  .contact-hero {
+    padding-top: 90px;
+  }
+  .video-card video {
+  width: 100% !important;
+  height: auto !important; /* Let height adjust to aspect ratio */
+  min-height: 180px; /* Prevent squishing on small screens */
+  background: #000; /* Black background if loading fails */
+  border-radius: 8px;
+}
+}
+
+/* Fix oversized hero subtitle on phones */
+@media(max-width:600px){
+  .page-hero p{
+    font-size:18px;
+  }
+}
+
+
+/* Smooth image scaling on small phones */
+.gallery-main{
+  max-height:350px;
+}
+
+/* Prevent footer icon overflow */
+.footer-socials{
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+@media (max-width:768px){
+
+  /* Stack about section nicely */
+  .about-wrapper{
+    flex-direction: column;
+    gap:20px;
+  }
+
+  /* Services cards spacing */
+  .services-page{
+    grid-template-columns: 1fr;
+  }
+
+  /* Make service images fully responsive */
+  .about-image img{
+    max-width:100%;
+    height:auto;
+  }
+
+  /* Prevent header overlap */
+  main{
+    padding-top:90px;
+  }
+}
+
+@media(max-width:600px){
+  .page-hero p{ font-size:18px; }
+  .product-card img{ height:160px; width: 100%; object-fit: cover !important; object-position: center;}
+}
+
+/* ================= MOBILE MASTER RESET ================= */
+@media (max-width: 768px){
+
+  /* --- GLOBAL --- */
+  body{
+    overflow-x:hidden;
+  }
+
+  main{
+    padding-top: 90px; /* space under fixed header */
+  }
+
+  /* --- HEADER --- */
+  header{
+    height:90px;
+    padding: 0 15px;
+    justify-content: space-between;
+  }
+
+  .logo img{
+    height:60px;
+  }
+
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    font-size:14px;
+  }
+
+  /* --- HERO / PAGE HERO --- */
+  .hero-slider{
+    height:50vh;
+  }
+
+  .page-hero,
+  .about-hero,
+  .contact-hero{
+    padding-top: 90px;
+    padding-bottom: 35px;
+    margin-top: 0;
+  }
+
+  .page-hero h1{
+    font-size:26px;
+  }
+
+  .page-hero p{
+    font-size:18px;
+  }
+
+  /* --- GRIDS --- */
+  .products-grid,
+  .services-page,
+  .videos-page{
+    grid-template-columns: 1fr;
+    gap:20px;
+    padding:20px 15px;
+  }
+
+  /* --- PRODUCT CARDS --- */
+  .product-card img{
+    height:160px;
+    width: 100%;
+    object-fit: cover !important;
+    object-position: center;
+  }
+
+  /* --- ABOUT SECTION --- */
+  .about-wrapper{
+    flex-wrap:wrap;
+  }
+
+  .about-text,
+  .about-image{
+    flex: 1 1 100%;
+  }
+
+  .about-image-slider{
+    height:260px;
+  }
+
+  /* --- CONTACT --- */
+  .contact-wrapper{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  /* --- FOOTER --- */
+  footer{
+    padding:40px 15px 20px;
+    text-align:center;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+
+  .footer-socials{
+    justify-content:center;
+  }
+
+  /* --- GALLERY --- */
+  .gallery-main{
+    max-height:300px;
+  }
+
+  .gallery-thumbs img,
+  .gallery-thumbs video{
+    width:65px;
+    height:50px;
+  }
+}
+
+/* ────────────────────────────────────────────────
+   MOBILE + TABLET MASTER STYLES
+   (only affects ≤ 1024px — desktop stays untouched)
+───────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+
+  /* Global mobile improvements */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  main {
+    padding-top: 90px;          /* space under fixed header */
+    flex: 1;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    height: 80px;
+    padding: 0 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+
+  .logo img {
+    height: 58px;
+  }
+
+  nav {
+    gap: 14px;
+    font-size: 0.95rem;
+  }
+
+  /* Make nav more phone-friendly */
+  nav a {
+    padding: 6px 10px;
+    font-size: 0.95rem;
+  }
+
+  /* ─── PAGE HERO (most important fix) ─── */
+  .page-hero,
+  .about-hero,
+  .contact-hero,
+  .hero-wrapper {
+    padding: 110px 20px 60px;     /* top space + good breathing room */
+    margin-top: 0 !important;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .page-hero p {
+    font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+    line-height: 1.45;
+    max-width: 90%;
+    margin: 0 auto;
+    opacity: 0.95;
+  }
+
+  /* ─── ALL GRIDS & CARDS ─── */
+  .products-grid,
+  .services-page,
+  .videos-page {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .product-card {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .product-card img,
+  .product-img {
+    height: 220px;               /* better proportion on phones */
+  
+  }
+
+  .service-card {
+    padding: 28px 20px;
+  }
+
+  /* ─── PRODUCT PAGE / GALLERY ─── */
+  .product-page {
+    flex-direction: column;
+    padding: 30px 16px;
+    gap: 32px;
+  }
+
+  .gallery-main {
+    max-height: 380px;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  .gallery-thumbs {
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .gallery-thumbs img,
+  .gallery-thumbs video {
+    width: 78px;
+    height: 58px;
+  }
+
+  .product-info {
+    max-width: 100%;
+  }
+
+  /* ─── ABOUT PAGE ─── */
+  .about-wrapper {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .about-image img,
+  .about-image-slider {
+    width: 100%;
+    height: auto;
+    max-height: 340px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* ─── CONTACT PAGE ─── */
+  .contact-hero {
+    padding: 110px 20px 50px;
+  }
+
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .map-section iframe {
+    height: 320px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 50px 16px 30px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .footer-socials a {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+}
+
+/* ─── Very small phones (iPhone SE, Galaxy small etc) ─── */
+@media (max-width: 480px) {
+
+  header {
+    height: 70px;
+  }
+
+  .logo img {
+    height: 52px;
+  }
+
+  .page-hero,
+  .about-hero,
+  .contact-hero {
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+
+  .page-hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .page-hero p {
+    font-size: 1.05rem;
+  }
+
+  .product-card img,
+  .product-img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover !important;
+    object-position: center;
+  }
+
+  .gallery-main {
+    max-height: 320px;
+  }
+
+  .gallery-thumbs img,
+  .gallery-thumbs video {
+    width: 64px;
+    height: 48px;
+  }
+
+  .map-section iframe {
+    height: 280px;
+  }
+}
+
+.video-card video {
+  min-height: 160px;
+}
+
+/* ==================== MOBILE & TABLET MASTER RESPONSIVE ==================== */
+
+/* Small phones (≤ 480px) — very small screens like iPhone SE, older Androids */
+@media (max-width: 480px) {
+  :root {
+    --spacing-unit: 15px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  header {
+    height: 80px;
+    padding: 0 12px;
+  }
+
+  .logo img {
+    height: 55px;
+  }
+
+  main {
+    padding-top: 80px !important;
+  }
+
+  .search-box {
+    display: none !important;
+  }
+
+  /* Page Heroes */
+  .page-hero,
+  .about-hero,
+  .contact-hero {
+    padding: 90px 15px 40px !important;
+    min-height: 40vh;
+  }
+
+  .page-hero h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .page-hero p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    opacity: 0.95;
+  }
+
+  /* Grids */
+  .products-grid,
+  .services-page,
+  .videos-page,
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .product-card img,
+  .service-card img {
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    object-position: center;
+  }
+
+  .video-card video {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 160px;
+    background: #000;
+  }
+
+  .about-wrapper,
+  .contact-wrapper,
+  .product-page {
+    flex-direction: column;
+    gap: 25px;
+    padding: 0 15px;
+  }
+
+  .about-image img,
+  .gallery-main {
+    max-height: 280px;
+    width: 100%;
+  }
+
+  .gallery-thumbs {
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .gallery-thumbs img,
+  .gallery-thumbs video {
+    width: 60px;
+    height: 45px;
+  }
+
+  .contact-form,
+  .contact-info {
+    width: 100%;
+  }
+
+  .contact-hero h1 {
+    font-size: 2rem;
+  }
+
+  .map-section iframe {
+    height: 220px;
+  }
+}
+
+/* Phones & small tablets (≤ 768px) */
+@media (max-width: 768px) {
+  :root {
+    --spacing-unit: 20px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  header {
+    height: 85px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  main {
+    padding-top: 85px !important;
+  }
+
+  .search-box {
+    display: none !important;
+  }
+
+  /* Heroes */
+  .page-hero,
+  .about-hero,
+  .contact-hero,
+  .hero-wrapper {
+    padding: 100px 20px 50px !important;
+    margin-top: 0 !important;
+    background-position: center !important;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.2rem, 6vw, 2.8rem);
+    margin-bottom: 12px;
+  }
+
+  .page-hero p {
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .hero-slider {
+    height: 50vh;
+  }
+
+  .products-section,
+  .services-page,
+  .videos-page,
+  .contact-section,
+  .product-page,
+  .about-content,
+  .values {
+    padding: 40px 20px !important;
+  }
+
+  .products-grid,
+  .services-page,
+  .videos-page {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .product-card,
+  .service-card {
+    max-width: 100%;
+  }
+
+  .product-card img,
+  .service-card img {
+    width: 100% !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    object-position: center;
+  }
+
+  .video-card video {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 180px;
+    background: #000;
+  }
+
+  .about-wrapper,
+  .contact-wrapper,
+  .product-page {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about-image img,
+  .gallery-main {
+    max-height: 320px;
+  }
+
+  .gallery-thumbs {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .gallery-thumbs img,
+  .gallery-thumbs video {
+    width: 70px;
+    height: 55px;
+  }
+
+  .contact-hero {
+    padding: 80px 20px 50px;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .map-section iframe {
+    height: 280px;
+  }
+
+  footer {
+    padding: 50px 20px 30px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+/* Tablets (769px – 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  header {
+    height: 90px;
+    padding: 0 30px;
+  }
+
+  main {
+    padding-top: 90px;
+  }
+
+  .search-box {
+    display: none !important; /* Optional: Hide on tablets too if nav feels crowded */
+  }
+
+  .page-hero,
+  .about-hero,
+  .contact-hero {
+    padding: 110px 40px 60px;
+  }
+
+  .page-hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .page-hero p {
+    font-size: 1.4rem;
+  }
+
+  .hero-slider {
+    height: 60vh;
+  }
+
+  .products-grid,
+  .services-page,
+  .videos-page {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-card img {
+    height: 240px !important; /* Slightly taller for tablets */
+  }
+
+  .video-card video {
+    min-height: 200px;
+  }
+
+  .about-wrapper,
+  .contact-wrapper,
+  .product-page {
+    gap: 40px;
+  }
+
+  .gallery-main {
+    max-height: 420px;
+  }
+}
+
+/* Global Image/Video Safeguards */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==================== SERVICE IMAGE BOX ==================== */
+
+/* Base styles for all screens */
+.service-img-box {
+  width: 100%;
+  height: 200px; /* Fixed height box – adjust as needed */
+  overflow: hidden; /* Prevents image overflow */
+  border-radius: 8px; /* Optional: rounded corners */
+  background: #f0f0f0; /* Fallback color if image fails to load */
+  margin-bottom: 15px; /* Space below box */
+}
+
+.service-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills the box perfectly, cropping if necessary */
+  object-position: center; /* Centers the image */
+  display: block; /* Ensures no extra space */
+}
+
+/* Hide the icon if you're replacing with images */
+.service-card i {
+  display: none; /* Optional: If you no longer need icons */
+}
+
+/* Mobile Fixes: Smaller box on phones */
+@media (max-width: 768px) {
+  .service-img-box {
+    height: 180px; /* Shorter for mobile */
+  }
+
+  .service-card {
+    text-align: center; /* Centers content nicely */
+  }
+
+  /* Ensure images show if hidden by other rules */
+  .service-card img {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-img-box {
+    height: 160px; /* Even smaller for tiny phones */
+  }
+}
+
+/* Tablets: Slightly larger box */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .service-img-box {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Hide the entire right side if search is there */
+  .nav-right {
+    display: none !important;
+  }
+
+  /* Or more targeted: hide only search parts */
+  [class*="search"],
+  input[type="search"],
+  input[placeholder*="Rechercher"],
+  .search-icon,
+  .fa-search,
+  svg[aria-label*="search"],
+  button[type="submit"] i {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-right i[class*="search"],
+  .nav-right .fa-magnifying-glass,
+  .nav-right .fa-search {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  header nav input,
+  header .nav-right input,
+  header nav [type="search"],
+  header nav button[type="submit"] {
+    display: none !important;
+  }
+}
+
+/* ==================== MOBILE & TABLET MASTER RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  /* Force hide search everywhere it might hide */
+  .search-box,
+  .nav-right .search-box,
+  input[type="search"],
+  input[placeholder*="Rechercher"],
+  .nav-right [class*="search"],
+  .nav-right i[class*="search"],
+  .nav-right .fa-search,
+  header nav input {
+    display: none !important;
+  }
+
+  /* Optional: If you want to keep nav links but center them fully */
+  nav {
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  /* Rest of your mobile styles... */
+  header {
+    height: 85px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    height: 64px;
+  }
+
+  main {
+    padding-top: 85px !important;
+  }
+
+  /* ... your other mobile rules for products, videos, etc. ... */
+}
+
+/* ==================== MOBILE & TABLET MASTER RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+  /* Force hide search everywhere it might hide */
+  .search-box,
+  .nav-right .search-box,
+  input[type="search"],
+  input[placeholder*="Rechercher"],
+  .nav-right [class*="search"],
+  .nav-right i[class*="search"],
+  .nav-right .fa-search,
+  header nav input {
+    display: none !important;
+  }
+
+  /* Optional: If you want to keep nav links but center them fully */
+  nav {
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  /* Rest of your mobile styles... */
+  header {
+    height: 85px;
+    padding: 0 15px;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  main {
+    padding-top: 85px !important;
+  }
+
+  /* ... your other mobile rules for products, videos, etc. ... */
+}
+
+/* ==================== LARGER SEARCH BAR ON DESKTOP ==================== */
+
+/* Base desktop size increase (screens >1024px or default) */
+.search-box input {
+  width: 350px !important;          /* Was probably ~200-250px; make wider */
+  height: 48px !important;          /* Taller for better touch/click area */
+  padding: 10px 20px 10px 45px !important; /* More padding, space for icon on left/right */
+  font-size: 16px !important;       /* Bigger text */
+  border: 2px solid #ccc !important;
+  border-radius: 30px !important;   /* Softer, modern look */
+  transition: width 0.3s ease, border-color 0.3s ease;
+}
+
+/* Optional: Make it expand slightly on focus (nice UX) */
+.search-box input:focus {
+  width: 400px !important;
+  border-color: var(--main-green) !important;
+  box-shadow: 0 0 0 3px rgba(26, 163, 74, 0.2) !important;
+}
+
+/* Adjust the container if needed (if .search-box has fixed width) */
+.search-box {
+  width: auto !important;
+  min-width: 100px !important;
+}
+
+/* For tablets (optional - medium size) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .search-box input {
+    width: 280px !important;
+    height: 44px !important;
+    padding: 8px 18px 8px 40px !important;
+  }
+}
+
+/* ============================================= */
+/* PREVENT SEARCH BOX FROM MOVING ON SCROLL (DESKTOP) */
+/* ============================================= */
+
+header.scrolled {
+  justify-content: space-between !important;  /* Override center → keep space-between layout */
+}
+
+header.scrolled .nav-right {
+  margin-left: auto !important;               /* Pushes search to the far right */
+  justify-content: flex-end !important;
+  flex-shrink: 0 !important;
+}
+
+header.scrolled .logo {
+  margin-right: auto !important;              /* Keeps logo area pushed left if needed */
+}
+
+/* Optional: Make search input look good in green header (white text, etc.) */
+header.scrolled .search-box input {
+  background: rgba(255,255,255,0.95) !important;
+  color: #111 !important;
+  border-color: #eee !important;
+}
+
+/* If you want search slightly smaller or styled differently on scrolled */
+header.scrolled .search-box input {
+  width: 280px !important;                    /* Adjust if it feels too wide now */
+  padding: 10px 16px !important;
+}
+
+/* ===== SERVICES IMAGE BOX (MOBILE) ===== */
+@media (max-width: 768px) {
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .service-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+/* ============================================= */
+/* IMPROVED FULLSCREEN LIGHTBOX – CLICK BACKGROUND TO CLOSE */
+/* ============================================= */
+
+.enlarge-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.94);
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: default;           /* no zoom-out cursor on background */
+  user-select: none;
+}
+
+.enlarge-lightbox.show {
+  display: flex;
+}
+
+.lightbox-content-wrapper {
+  position: relative;
+  max-width: 94vw;           /* ← leaves space around */
+  max-height: 94vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 0 70px rgba(0,0,0,0.8);
+  transition: transform 0.4s ease;
+  cursor: zoom-in;           /* only on image itself */
+}
+
+/* Close button */
+.close-lightbox {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: white;
+  font-size: 42px;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgba(0,0,0,0.6);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  z-index: 100000;
+  transition: all 0.2s;
+}
+
+.close-lightbox:hover {
+  background: #1aa34a;
+  transform: scale(1.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 1024px) {
+  .lightbox-content-wrapper {
+    max-width: 96vw;
+    max-height: 92vh;
+  }
+  .close-lightbox {
+    top: 15px;
+    right: 15px;
+    width: 44px;
+    height: 44px;
+    font-size: 36px;
+  }
+}
+
+/* Click hint on image */
+.enlarge-on-click {
+  cursor: zoom-in !important;
+  transition: transform 0.25s ease;
+}
+
+.enlarge-on-click:hover {
+  transform: scale(1.03);
+}
+
+/* ============================================= */
+/* HAMBURGER MENU – MOBILE ONLY (like the example) */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  /* Show hamburger icon */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 3px;
+    background: var(--dark);
+    transition: all 0.35s ease;
+    border-radius: 2px;
+  }
+
+  /* X icon when menu is open */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  /* Menu container – slide from right */
+  #navMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 340px;
+    height: 100vh;
+    background: white;
+    padding: 100px 25px 40px;
+    transition: right 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1001;
+    overflow-y: auto;
+    box-shadow: -8px 0 30px rgba(0,0,0,0.3);
+  }
+
+  #navMenu.active {
+    right: 0;
+  }
+
+  /* Style menu links */
+  #navMenu a,
+  #navMenu .nav-dropdown {
+    display: block;
+    font-size: 1.18rem;
+    font-weight: 500;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: var(--dark);
+    text-decoration: none;
+  }
+
+  #navMenu a:hover,
+  #navMenu .nav-dropdown:hover {
+    color: var(--main-green);
+  }
+
+  /* Dropdowns in mobile menu – always visible, indented */
+  #navMenu .dropdown-menu {
+    position: static;
+    display: block !important;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 0 0 25px;
+    margin: 0;
+  }
+
+  #navMenu .dropdown-menu a {
+    font-size: 1.05rem;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  /* Dim overlay when menu open */
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Hide normal nav/search on mobile */
+  nav:not(#navMenu),
+  .search-box {
+    display: none !important;
+  }
+}
+
+/* Desktop – hide hamburger & overlay completely */
+@media (min-width: 769px) {
+  .hamburger,
+  .menu-overlay {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 3px;
+    background: #111;
+    transition: all 0.35s ease;
+    border-radius: 2px;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  #navMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 340px;
+    height: 100vh;
+    background: white;
+    padding: 100px 25px 40px;
+    transition: right 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1001;
+    overflow-y: auto;
+    box-shadow: -8px 0 30px rgba(0,0,0,0.3);
+  }
+
+  #navMenu.active {
+    right: 0;
+  }
+
+  #navMenu a,
+  #navMenu .nav-dropdown {
+    display: block;
+    font-size: 1.18rem;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #111;
+    text-decoration: none;
+  }
+
+  #navMenu a:hover {
+    color: var(--main-green);
+  }
+
+  #navMenu .dropdown-menu {
+    position: static;
+    display: block !important;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 0 0 25px;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger,
+  .menu-overlay {
+    display: none !important;
+  }
+}
+
+/* ============================================= */
+/* HAMBURGER MENU – MOBILE ONLY (clean & modern) */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  /* Hamburger icon visible */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 3px;
+    background: var(--dark);
+    transition: all 0.35s ease;
+    border-radius: 2px;
+  }
+
+  /* X animation when open */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  /* Menu – slide from right, full height */
+  #navMenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 340px;
+    height: 100vh;
+    background: white;
+    padding: 100px 25px 40px;
+    transition: right 0.45s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1001;
+    overflow-y: auto;
+    box-shadow: -8px 0 30px rgba(0,0,0,0.3);
+  }
+
+  #navMenu.active {
+    right: 0;
+  }
+
+  /* Menu items – stacked vertically */
+  #navMenu a,
+  #navMenu .nav-dropdown {
+    display: block;
+    font-size: 1.18rem;
+    font-weight: 500;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: var(--dark);
+    text-decoration: none;
+  }
+
+  #navMenu a:hover,
+  #navMenu .nav-dropdown:hover {
+    color: var(--main-green);
+  }
+
+  /* Dropdowns in mobile – always visible & indented */
+  #navMenu .dropdown-menu {
+    position: static;
+    display: block !important;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 0 0 25px;
+    margin: 0;
+  }
+
+  #navMenu .dropdown-menu a {
+    font-size: 1.05rem;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  /* Dim overlay when menu open */
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Hide normal nav & search on mobile */
+  nav:not(#navMenu),
+  .search-box {
+    display: none !important;
+  }
+}
+
+/* Desktop – hide hamburger & overlay */
+@media (min-width: 769px) {
+  .hamburger,
+  .menu-overlay {
+    display: none !important;
+  }
+}
+
+/* ============================================= */
+/* HAMBURGER MENU – MOBILE ONLY – FINAL FIX */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  /* FORCE show hamburger – highest priority */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 34px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1002;
+    position: relative;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 4px;
+    background: var(--dark);
+    transition: all 0.35s ease;
+    border-radius: 3px;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
+
+  /* Menu slide-in */
+  #navMenu {
+    position: fixed !important;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 360px;
+    height: 100vh;
+    background: white;
+    padding: 110px 30px 40px;
+    transition: right 0.4s ease;
+    z-index: 1001;
+    overflow-y: auto;
+    box-shadow: -10px 0 35px rgba(0,0,0,0.25);
+  }
+
+  #navMenu.active {
+    right: 0 !important;
+  }
+
+  /* Menu items */
+  #navMenu a,
+  #navMenu .nav-dropdown {
+    display: block;
+    font-size: 1.2rem;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+    color: #111;
+    text-decoration: none;
+  }
+
+  #navMenu a:hover {
+    color: var(--main-green);
+  }
+
+  /* Dropdowns visible & indented */
+  #navMenu .dropdown-menu {
+    position: static !important;
+    display: block !important;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 0 0 30px;
+  }
+
+  /* Overlay */
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Hide desktop nav & search on mobile */
+  nav:not(#navMenu),
+  .search-box {
+    display: none !important;
+  }
+}
+
+/* Desktop – completely hide hamburger & overlay */
+@media (min-width: 769px) {
+  .hamburger,
+  .menu-overlay {
+    display: none !important;
+  }
+}
+
+/* ============================================= */
+/* ABOUT IMAGE SLIDER – AUTO SHUFFLE + RESPONSIVE */
+/* ============================================= */
+
+.about-image-slider {
+  position: relative;
+  width: 100%;
+  height: 380px;                 /* desktop height */
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: #f0f0f0;           /* fallback color */
+}
+
+.about-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.about-slide.active {
+  opacity: 1;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .about-image-slider {
+    height: 260px;               /* smaller on phones */
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-image-slider {
+    height: 220px;
+  }
+}
+
+/* ===== HAMBURGER HARD OVERRIDE (REAL PHONE FIX) ===== */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex !important;
+  }
+
+  nav:not(#navMenu) {
+    display: none !important;
+  }
+
+  #navMenu {
+    display: block !important;
+  }
+}
