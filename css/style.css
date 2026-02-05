@@ -9,6 +9,10 @@
   box-sizing:border-box;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body{
   font-family: Arial, sans-serif;
   color:#111;
@@ -576,14 +580,15 @@ footer a:hover{
 
 .product-page {
   display: flex;
-  flex-wrap: wrap;
   gap: 40px;
+  align-items: flex-start;
   padding: 60px 10%;
   background: #fff;
 }
 
 .product-gallery {
-  flex: 1 1 400px;
+  width: 45%;
+  flex-shrink: 0;
 }
 
 .gallery-main {
@@ -595,27 +600,21 @@ footer a:hover{
 }
 
 .gallery-thumbs {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   gap: 10px;
-  margin-top: 10px;
+  width: 100%;
 }
 
-.gallery-thumbs img {
-  width: 80px;
-  height: 60px;
-  object-fit: cover;
-  cursor: pointer;
-  border-radius: 4px;
-  border: 2px solid transparent;
-}
-
+.gallery-thumbs img,
 .gallery-thumbs video {
-  width: 80px;
-  height: 60px;
+  width: 100%;
+  height: 70px;
   object-fit: cover;
   cursor: pointer;
   border-radius: 4px;
   border: 2px solid transparent;
+  display: block;
 }
 
 .gallery-thumbs img:hover,
@@ -625,6 +624,8 @@ footer a:hover{
 
 .product-info {
   flex: 1 1 400px;
+  max-width: 100%;
+  display: block;
 }
 
 .btn-devis {
@@ -921,6 +922,16 @@ header.scrolled .dropdown-menu a:hover {
   .products-section {
     padding-top: 90px;
   }
+
+  .product-page {
+    flex-direction: column;
+  }
+
+   .product-gallery,
+  .product-info {
+    width: 100%;
+  }
+
 }
 
 /* ===== FIX MOBILE FOOTER SCROLL BUG ===== */
