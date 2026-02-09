@@ -656,19 +656,191 @@ footer a:hover{
   padding: 40px;
 }
 
-.video-card {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-}
+/* Video Grid */
+        .videos-page {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            padding: 0 40px 60px;
+        }
 
-.video-card video {
-  width: 100%;
-  border-radius: 8px;
-  margin-top: 10px;
-}
+        /* Video Card */
+        .video-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+        }
+
+        .video-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Card Header */
+        .card-header {
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .video-card h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .video-card h3::before {
+            content: '▶';
+            color: #3498db;
+            font-size: 0.9rem;
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            padding: 25px;
+            background: #fff;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .video-card video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover video {
+            transform: scale(1.02);
+        }
+
+        /* Play Overlay */
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(52, 152, 219, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .video-wrapper:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-overlay::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid #fff;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 4px;
+        }
+
+        video::-webkit-media-controls {
+            opacity: 1;
+        }
+
+        /* Category Badge */
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #2c3e50;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .videos-page {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0 20px 40px;
+            }
+
+            .video-card h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .videos-page {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .video-card.loading {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
 
 .page-hero {
   background: linear-gradient(135deg, var(--main-green) 0%, #0d5a2e 100%);
@@ -1742,9 +1914,6 @@ h1, h2, h3 {
   }
 }
 
-.video-card video {
-  min-height: 160px;
-}
 
 /* ==================== MOBILE & TABLET MASTER RESPONSIVE ==================== */
 
@@ -1812,12 +1981,6 @@ h1, h2, h3 {
     object-position: center;
   }
 
-  .video-card video {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 160px;
-    background: #000;
-  }
 
   .about-wrapper,
   .contact-wrapper,
@@ -1940,13 +2103,6 @@ h1, h2, h3 {
     object-position: center;
   }
 
-  .video-card video {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 180px;
-    background: #000;
-  }
-
   .about-wrapper,
   .contact-wrapper,
   .product-page {
@@ -2039,10 +2195,6 @@ h1, h2, h3 {
 
   .product-card img {
     height: 240px !important; /* Slightly taller for tablets */
-  }
-
-  .video-card video {
-    min-height: 200px;
   }
 
   .about-wrapper,
